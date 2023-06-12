@@ -14,8 +14,8 @@ This Zimlet adds a customizable infobar to the message view, indicating the sens
 4. Go to **Zimlets**.
 5. Click on **Install Zimlet**.
 6. Select the downloaded `com_zimbra_confidential_header.zip` file.
-7. Click on **OK** to install the Zimlet.
-8. Reload the Zimbra server.
+7. Tick the "Flush Cache" checkbox.
+8. Click on **OK** to install the Zimlet.
 
 ## Usage
 
@@ -43,7 +43,7 @@ To build and customize the Confidential Header Zimlet, follow these steps:
 1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
 2. Modify the Zimlet files in the `zimlet/com_zimbra_confidential_header` directory to add or modify functionality.
 3. Update the Zimlet version and other details in the `zimlet/com_zimbra_confidential_header/com_zimbra_confidential_header.xml` file.
-4. Build the Zimlet package: `./build.sh`
+4. Build the Zimlet package: `make`
 5. The built Zimlet package (`com_zimbra_confidential_header.zip`) will be available in the `build` directory.
 6. Follow the installation instructions above to install the modified Zimlet package on your Zimbra server.
 
