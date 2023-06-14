@@ -47,7 +47,7 @@ ConfHeaderZimlet.prototype.onMsgView = function (msg, oldMsg, msgView) {
                var z = document.createElement('div');
                switch (msg.attrs['Sensitivity']) {
                   case 'Personal':
-                     z.innerText = '🔑 ' + zimletInstance.getMessage('ConfHeaderZimlet_Personal');
+                     z.innerText = zimletInstance.getMessage('ConfHeaderZimlet_Personal');
                      break;
                   case 'Private':
                      z.innerText = zimletInstance.getMessage('ConfHeaderZimlet_Private');
