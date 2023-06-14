@@ -47,13 +47,13 @@ ConfHeaderZimlet.prototype.onMsgView = function (msg, oldMsg, msgView) {
                var z = document.createElement('div');
                switch (msg.attrs['Sensitivity']) {
                   case 'Personal':
-                     z.innerText = '🤐 ' + zimletInstance.getMessage('ConfHeaderZimlet_Personal');
+                     z.innerText = '🔑 ' + zimletInstance.getMessage('ConfHeaderZimlet_Personal');
                      break;
                   case 'Private':
-                     z.innerText = '🤐 ' + zimletInstance.getMessage('ConfHeaderZimlet_Private');
+                     z.innerText = zimletInstance.getMessage('ConfHeaderZimlet_Private');
                      break;
                   default:
-                     z.innerText = '🤐 ' + zimletInstance.getMessage('ConfHeaderZimlet_CompanyConfidential');
+                     z.innerText = zimletInstance.getMessage('ConfHeaderZimlet_CompanyConfidential');
                }
                z.className = 'ConfHeaderZimlet-infobar';
                infoBarDiv.insertBefore(z, infoBarDiv.firstChild);
@@ -104,7 +104,7 @@ ConfHeaderZimlet.prototype.initializeToolbar = function(app, toolbar, controller
 
       // Create the sensitivity button
       var buttonArgs = {
-         text: "🤐  " + zimletInstance.getMessage('ConfHeaderZimlet_sensitivityBtn'),
+         text: zimletInstance.getMessage('ConfHeaderZimlet_sensitivityBtn'),
          index: 1,
          showImageInToolbar: false,
          showTextInToolbar: true,
@@ -128,7 +128,7 @@ ConfHeaderZimlet.prototype._selectSensitivity = function(sensitivity, displayTex
    zimletInstance.sensitivity[zimletInstance.composeViewId] = sensitivity;
    // Update button text
    if (zimletInstance.sensitivityButton) {
-      zimletInstance.sensitivityButton.setText("🤐  " + displayText);
+      zimletInstance.sensitivityButton.setText(displayText);
    }
 };
 
@@ -141,7 +141,7 @@ ConfHeaderZimlet.prototype.resetSensitivity = function() {
    if (zimletInstance.sensitivity && zimletInstance.sensitivity[composeViewId]) {
       zimletInstance.sensitivity[composeViewId] = zimletInstance.defaultSensitivity;
       if (zimletInstance.sensitivityButton) {
-         zimletInstance.sensitivityButton.setText("🤐  " + zimletInstance.getMessage('ConfHeaderZimlet_sensitivityOptionNormal'));
+         zimletInstance.sensitivityButton.setText(zimletInstance.getMessage('ConfHeaderZimlet_sensitivityOptionNormal'));
       }
    }
 };
