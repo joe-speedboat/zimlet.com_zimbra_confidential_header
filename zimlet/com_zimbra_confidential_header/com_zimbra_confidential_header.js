@@ -126,10 +126,7 @@ ConfHeaderZimlet.prototype.initializeToolbar = function(app, toolbar, controller
 ConfHeaderZimlet.prototype._selectSensitivity = function(sensitivity, displayText, toolbar) {
    var zimletInstance = appCtxt._zimletMgr.getZimletByName('com_zimbra_confidential_header').handlerObject;
    zimletInstance.sensitivity[zimletInstance.composeViewId] = sensitivity;
-   // Update button text
-   if (zimletInstance.sensitivityButton) {
-      zimletInstance.sensitivityButton.setText(displayText);
-   }
+   console.log("Sensitivity selected: " + sensitivity);
 };
 
 /**
@@ -140,9 +137,7 @@ ConfHeaderZimlet.prototype.resetSensitivity = function() {
    var composeViewId = zimletInstance.composeViewId;
    if (zimletInstance.sensitivity && zimletInstance.sensitivity[composeViewId]) {
       zimletInstance.sensitivity[composeViewId] = zimletInstance.defaultSensitivity;
-      if (zimletInstance.sensitivityButton) {
-         zimletInstance.sensitivityButton.setText(zimletInstance.getMessage('ConfHeaderZimlet_sensitivityOptionNormal'));
-      }
+      console.log("Sensitivity reset for composeViewId: " + composeViewId);
    }
 };
 
@@ -156,6 +151,7 @@ ConfHeaderZimlet.prototype.addCustomMimeHeaders = function(customHeaders) {
    if (zimletInstance.sensitivity && zimletInstance.sensitivity[composeViewId]) {
       var controller = appCtxt.getCurrentController();
       var sensitivity = zimletInstance.sensitivity[composeViewId];
+      console.log("Adding sensitivity to headers for composeViewId: " + composeViewId);
       switch (sensitivity) {
          case 'Personal':
             customHeaders.push({name: "Sensitivity", _content: 'Personal'});
