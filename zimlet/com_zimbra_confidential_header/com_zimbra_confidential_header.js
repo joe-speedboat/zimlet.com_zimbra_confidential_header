@@ -169,7 +169,7 @@ ConfHeaderZimlet.prototype.addCustomMimeHeaders = function(customHeaders) {
          default:
             customHeaders.push({name: "Sensitivity", _content: 'Normal'});
       }
-      zimletInstance.resetSensitivity();
+///      zimletInstance.resetSensitivity();
    }
 };
 
